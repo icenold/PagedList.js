@@ -1,18 +1,13 @@
 class PagedList{
     constructor(_items, _pageSize){
-        this.Items = _items;
-        this.PageSize = _pageSize;
+        this.Items = _items || [];
+        this.PageSize = _pageSize || 10;
         this.PageNumber = 1;
-        this.Filter = null;
     }
-
+    
     GetPagedItems(){
         let startIndex = (this.PageNumber-1) * this.PageSize;
-        let filteredItems = this.Items.slice(0);
-        if(this.Filter){
-            filteredItems = filteredItems.filter(this.Filter);
-        }
-        let pagedItems = filteredItems.slice(startIndex,startIndex+this.PageSize);
+        let pagedItems = this.Items.slice(startIndex,startIndex+this.PageSize);
         return pagedItems;
     }
     
@@ -31,16 +26,15 @@ class PagedList{
     }
 }
 
-//testing
-// var arr = [];
-// for(let i=1; i<=41; i++){
-//     arr.push(`Item #${i}`);
-// }
-// var foo = new PagedList(arr, 10);
-// var numRemove = "5";
-// foo.Filter = function(item){
-//     return !item.includes(numRemove);
-// };
-// console.log(foo.GetPagedItems());
-// numRemove = "3";
-// console.log(foo.GetPagedItems());
+/*testing*/
+var arr = [];
+for(let i=1; i<=43; i++){
+    arr.push(`Item #${i}`);
+}
+var foo = new PagedList(arr, 10);
+var numRemove = "5";
+console.log(foo.GetTotalPages());
+console.log(foo.GetPagedItems());
+numRemove = "3";
+console.log(foo.GoTo(4));
+console.log(foo.GoTo(2));
