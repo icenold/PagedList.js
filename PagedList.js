@@ -27,14 +27,14 @@ class PagedList{
 }
 
 /*testing*/
-var arr = [];
-for(let i=1; i<=43; i++){
-    arr.push(`Item #${i}`);
-}
-var foo = new PagedList(arr, 10);
-var numRemove = "5";
-console.log(foo.GetTotalPages());
-console.log(foo.GetPagedItems());
-numRemove = "3";
-console.log(foo.GoTo(4));
-console.log(foo.GoTo(2));
+//var arr = [];
+//for(let i=1; i<=43; i++){
+//    arr.push(`Item #${i}`);
+//}
+//var foo = new PagedList(arr, 10);
+//var numRemove = "5";
+//console.log(foo.GetTotalPages());
+//console.log(foo.GetPagedItems());
+//numRemove = "3";
+//console.log(foo.GoTo(4));
+//console.log(foo.GoTo(2));
